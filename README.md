@@ -26,6 +26,18 @@ Translate all text in a Canva design to another language, creating localized cop
 - Supports any language Claude can translate
 - Batch processes all text in a single operation
 
+### implement-feedback
+Implement reviewer feedback on a Canva design — read comment threads, make the clear-cut changes.
+
+**Use when:** A design has been reviewed and you want to apply the feedback without manually reading every comment thread and editing each slide.
+
+**Capabilities:**
+- Reads all comment threads and replies across the design
+- Triages feedback into actionable, ambiguous, and manual-only categories
+- Applies API-supported changes (text, formatting, images) in a single batch
+- Presents a checklist of remaining manual changes with step-by-step instructions
+- Replies to comment threads to close the feedback loop
+
 ### social-media-resize
 Resize designs for multiple social media platforms (Facebook, Instagram, LinkedIn) in one operation.
 
@@ -64,6 +76,9 @@ Simply reference the skills naturally in your conversations:
 # Design translation
 "Translate my Summer Sale Poster design to French"
 
+# Implement feedback
+"Implement the feedback on my deck"
+
 # Social media resize
 "Resize design DABcd1234ef for all social media platforms"
 ```
@@ -77,11 +92,12 @@ canva-claude-skills/
 ├── README.md                    # This file
 ├── branded-presentation/        # Presentation generation skill
 │   └── SKILL.md
-├── design-translation/          # Translation skill
+├── translate-design/            # Translation skill
 │   └── SKILL.md
-├── social-media-resize/         # Multi-format resize skill
+├── implement-feedback/          # Review feedback skill
 │   └── SKILL.md
-└── .claude/                     # Claude configuration
+└── resize-for-social-media/     # Multi-format resize skill
+    └── SKILL.md
 ```
 
 ## Contributing
