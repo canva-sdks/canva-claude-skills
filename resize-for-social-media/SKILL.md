@@ -1,5 +1,5 @@
 ---
-name: canva-resize-for-all-social-media
+name: canva-resize-for-social-media
 description: Resize a Canva design into multiple social media formats (Facebook post, Facebook story, Instagram post, Instagram story, LinkedIn post) and export all versions as PNGs. Use this skill when users want to resize Canva designs specifically for multiple social media platforms in one operation, rather than resizing to a single format manually.
 ---
 
@@ -49,11 +49,27 @@ Use the `get-design` tool with the design ID to:
 - Get the design title (for naming resized versions)
 - Verify design type compatibility
 
-### Step 3: Resize to All Social Media Formats
+### Step 3: Ask Which Platforms and Formats
 
-Execute the resize operations **in parallel** by calling the `resize-design` tool once for each target format. Use these exact specifications:
+Present the available formats and ask which ones the user wants:
 
-**Required formats and dimensions:**
+```
+Which platforms and formats would you like to resize for?
+
+- Facebook post (1200×630)
+- Facebook story (1080×1920)
+- Instagram post (1080×1080)
+- Instagram story (1080×1920)
+- LinkedIn post (1200×627)
+```
+
+If the user says "all" or "all social media", use all five. Otherwise, only resize for the ones they select.
+
+### Step 4: Resize to Selected Formats
+
+Execute the resize operations **in parallel** by calling the `resize-design` tool once for each selected format. Use these exact specifications:
+
+**Available formats and dimensions:**
 
 1. **Facebook Post**: 1200 × 630 pixels (custom)
    ```
@@ -84,9 +100,11 @@ Execute the resize operations **in parallel** by calling the `resize-design` too
 
 **Error handling**: If a resize operation fails, continue with remaining formats and report which formats succeeded and which failed at the end.
 
-### Step 4: Export All Resized Designs as PNGs
+### Step 5: Export Resized Designs as PNGs
 
-For each successfully resized design from Step 3:
+If the user already asked to export (e.g., "resize and export for social media"), proceed directly. Otherwise, ask if they'd like to export the resized designs as PNGs.
+
+For each successfully resized design from Step 4:
 
 1. Use the `export-design` tool with the resized design ID
 2. Set format type to `png` with export quality `pro`:
@@ -97,7 +115,7 @@ For each successfully resized design from Step 3:
 
 **Batch the export calls** to execute them efficiently.
 
-### Step 5: Present Results with Download Links
+### Step 6: Present Results with Download Links
 
 **Present comprehensive results to the user:**
 
@@ -145,6 +163,7 @@ Note: Facebook Story and Instagram Story use the same dimensions (1080×1920).
 
 ## Key Implementation Notes
 
+- **Compatibility**: Check if `resize-design` is available in the current MCP tools. If not, inform the user that this skill requires the Claude Desktop and is not supported by Claude Code
 - **Parallel execution**: Resize and export operations should be performed in parallel for efficiency
 - **PNG export**: Always export as PNG with pro quality for best image quality
 - **Direct download links**: Provide users with direct PNG download links (do not attempt to download files server-side or create zip files, as network restrictions prevent this)
