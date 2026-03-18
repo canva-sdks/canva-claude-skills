@@ -38,7 +38,7 @@ Implement reviewer feedback on a Canva design — read comment threads, make the
 - Presents a checklist of remaining manual changes with step-by-step instructions
 - Replies to comment threads to close the feedback loop
 
-### social-media-resize
+### resize-for-social-media
 Resize designs for multiple social media platforms (Facebook, Instagram, LinkedIn) in one operation.
 
 **Use when:** You want to quickly distribute a design across multiple social media formats.
@@ -92,7 +92,7 @@ canva-claude-skills/
 ├── README.md                    # This file
 ├── branded-presentation/        # Presentation generation skill
 │   └── SKILL.md
-├── translate-design/            # Translation skill
+├── design-translation/          # Translation skill
 │   └── SKILL.md
 ├── implement-feedback/          # Review feedback skill
 │   └── SKILL.md
