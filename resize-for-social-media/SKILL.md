@@ -5,8 +5,6 @@ description: Resize a Canva design into multiple social media formats (Facebook 
 
 # Canva Resize for Social Media
 
-> **Claude Desktop only.** This skill requires `resize-design` which is only available via the Canva Local MCP server. If you are running on Claude Code, inform the user that resize is not supported and suggest they use Claude Desktop instead.
-
 Automatically resize a single Canva design into multiple social media formats and export all versions as high-quality PNG images with direct download links.
 
 ## Overview
