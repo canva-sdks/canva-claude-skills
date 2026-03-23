@@ -81,9 +81,8 @@ Turn a lesson plan into a teaching slide deck with learning objectives, lesson f
 ### For Claude Code CLI
 
 1. Clone this repository
-2. Follow the [Claude Code skills documentation](https://docs.claude.com/en/docs/claude-code/skills) — skills must live under **`~/.claude/skills/<name>/SKILL.md`** (all projects) or **`<repo>/.claude/skills/<name>/SKILL.md`** (this project only). A skill in a random folder (e.g. only `classroom-helper/SKILL.md` at the repo root) is **not** discovered, which leads to **`Error: Unknown skill: …`** when you run `/canva-classroom-helper` or similar.
-3. This repo includes **`.claude/skills/canva-classroom-helper` → `classroom-helper`** so the classroom helper matches the `name` in `SKILL.md`. For other skills here, add a symlink or copy each directory into `.claude/skills/` (or into `~/.claude/skills/`) the same way.
-4. Start using the skills from your terminal (e.g. `/canva-classroom-helper` or natural language that matches the description)
+2. Follow the [Claude Code skill installation guide](https://github.com/anthropics/claude-code)
+3. Start using the skills from your terminal
 
 ## Usage
 
