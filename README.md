@@ -5,33 +5,39 @@ Professional Claude skills for working with Canva designs. These skills enable p
 ## Available Skills
 
 ### branded-presentation
+
 Create on-brand presentations from outlines or briefs using Canva brand kits.
 
 **Use when:** You want to generate a professional presentation with consistent branding from text content, outlines, or Canva docs.
 
 **Capabilities:**
+
 - Converts outlines and briefs into structured slide decks
 - Automatically applies your Canva brand kits
 - Reads content from text, Canva docs, or design links
 - Generates multiple design candidates for selection
 
 ### design-translation
+
 Translate all text in a Canva design to another language, creating localized copies.
 
 **Use when:** You need to create multilingual versions of your designs without manually editing each text element.
 
 **Capabilities:**
+
 - Translates all text elements while preserving layout
 - Creates a new copy, leaving the original untouched
 - Supports any language Claude can translate
 - Batch processes all text in a single operation
 
 ### implement-feedback
+
 Implement reviewer feedback on a Canva design — read comment threads, make the clear-cut changes.
 
 **Use when:** A design has been reviewed and you want to apply the feedback without manually reading every comment thread and editing each slide.
 
 **Capabilities:**
+
 - Reads all comment threads and replies across the design
 - Triages feedback into actionable, ambiguous, and manual-only categories
 - Applies API-supported changes (text, formatting, images) in a single batch
@@ -39,15 +45,43 @@ Implement reviewer feedback on a Canva design — read comment threads, make the
 - Replies to comment threads to close the feedback loop
 
 ### resize-for-social-media
+
 Resize designs for multiple social media platforms (Facebook, Instagram, LinkedIn) in one operation.
 
 **Use when:** You want to quickly distribute a design across multiple social media formats.
 
 **Capabilities:**
+
 - Creates 5 platform-optimized versions (Facebook post/story, Instagram post/story, LinkedIn post)
 - Exports all versions as high-quality PNGs
 - Provides direct download links and Canva edit links
 - Executes all operations in parallel for speed
+
+### bulk-create
+
+Bulk-create Canva designs from tabular data using a brand template with autofill fields — one design per row.
+
+**Use when:** You want to generate many designs from a CSV, spreadsheet, pasted table, or JSON (e.g. one design per product or row).
+
+**Capabilities:**
+
+- Parses tabular data from files, pasted content, or URLs
+- Finds autofill-capable brand templates and maps columns to template fields
+- Creates one design per row with `autofill-design` (handles text, image assets, and chart fields per the skill)
+- Supports Enterprise autofill workflows where available
+
+### classroom-helper
+
+Turn a lesson plan into a teaching slide deck with learning objectives, lesson flow, and speaker notes.
+
+**Use when:** You want classroom slides built from a lesson plan (pasted text, Canva design ID, Canva doc or design name, or design link).
+
+**Capabilities:**
+
+- Maps lesson plans to a structured teaching deck (objectives, arc, slide-by-slide notes)
+- Pacing and slide-budget hints tied to lesson length; student-facing slides vs teacher speaker notes
+- Accepts design ID, short links, or search by name; disambiguation when needed; optional clarifying questions when the plan is thin
+- Uses brand kits like other presentation skills
 
 ## Installation
 
@@ -81,6 +115,13 @@ Simply reference the skills naturally in your conversations:
 
 # Social media resize
 "Resize design DABcd1234ef for all social media platforms"
+
+# Bulk create
+"Bulk create designs from this CSV using my brand template"
+
+# Classroom helper
+"Turn this lesson plan into a slide deck for my 7th grade science class"
+"Build slides from the lesson plan in design DABcd1234ef"
 ```
 
 Works seamlessly in both Claude Desktop and Claude Code CLI.
@@ -96,7 +137,11 @@ canva-claude-skills/
 │   └── SKILL.md
 ├── implement-feedback/          # Review feedback skill
 │   └── SKILL.md
-└── resize-for-social-media/     # Multi-format resize skill
+├── resize-for-social-media/     # Multi-format resize skill
+│   └── SKILL.md
+├── bulk-create/                 # Tabular data → one design per row
+│   └── SKILL.md
+└── classroom-helper/            # Lesson plan → teaching deck
     └── SKILL.md
 ```
 
