@@ -44,6 +44,18 @@ Implement reviewer feedback on a Canva design — read comment threads, make the
 - Presents a checklist of remaining manual changes with step-by-step instructions
 - Replies to comment threads to close the feedback loop
 
+### presentation-time-fitting
+
+Fit a presentation to a target speaking duration, especially by allocating time evenly across slides and generating presenter notes.
+
+**Use when:** You want a deck to match a slot (e.g. 15 minutes), even time per slide, or speaker notes written for timing. (On-slide copy is not edited; shorten or lengthen **slides** in Canva or elsewhere.)
+
+**Capabilities:**
+
+- Confirms design and target duration before cloning; reads slide text with `get-design-content` for context only, computes per-slide time and word budget
+- Generates or adjusts **presenter notes only** in the chat (no external API); writes them back via `get-design-pages` and editing APIs
+- Clones the design before note changes; does not change visible slide text; cannot add/remove slides via API
+
 ### resize-for-social-media
 
 Resize designs for multiple social media platforms (Facebook, Instagram, LinkedIn) in one operation.
@@ -113,6 +125,9 @@ Simply reference the skills naturally in your conversations:
 # Implement feedback
 "Implement the feedback on my deck"
 
+# Presentation time-fitting
+"Make this a 10-minute presentation"
+
 # Social media resize
 "Resize design DABcd1234ef for all social media platforms"
 
@@ -136,6 +151,8 @@ canva-claude-skills/
 ├── design-translation/          # Translation skill
 │   └── SKILL.md
 ├── implement-feedback/          # Review feedback skill
+│   └── SKILL.md
+├── presentation-time-fitting/   # Speaking duration and speaker notes
 │   └── SKILL.md
 ├── resize-for-social-media/     # Multi-format resize skill
 │   └── SKILL.md

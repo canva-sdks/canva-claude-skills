@@ -11,6 +11,8 @@ Translate all text elements in a Canva design to a target language, creating a n
 
 ### 1. Locate the Design
 
+If user provides a **design ID** directly (typically starts with `D`, e.g. `DABcd1234ef`), use that as the design identifier; **do not** pass it to `Canva:search-designs` (search is for titles, not IDs).
+
 If user provides a **URL**: Extract the design ID from the URL (format: `https://www.canva.com/design/{design_id}/...`).
 
 If user provides a **name**: Use `Canva:search-designs` to find the design by title. If multiple matches, ask user to clarify.
