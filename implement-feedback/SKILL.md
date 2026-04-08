@@ -40,6 +40,7 @@ When a comment requests something in the "CANNOT do" list, classify it as **Requ
 
 - If the user provides a short link (`canva.link`), call `Canva:resolve-shortlink` to get the design URL
 - If the user provides a full Canva URL, extract the design ID from the URL
+- If the user provides a **design ID** directly (typically starts with `D`, e.g. `DABcd1234ef`), use it as `design_id`; **do not** use `Canva:search-designs` for a raw ID
 - Otherwise ask for the design ID or link
 
 ### Step 2: Read All Feedback

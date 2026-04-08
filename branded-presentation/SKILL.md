@@ -1,6 +1,6 @@
 ---
 name: canva-branded-presentation
-description: Create on-brand Canva presentations from an outline or brief. Use when the user asks to create a branded presentation, make an on-brand deck, turn an outline into slides, or generate a presentation from a brief. Input can be text directly in the message, a reference to a Canva doc by name, or a Canva design link (e.g., https://www.canva.com/design/...).
+description: Create on-brand Canva presentations from an outline or brief. Use when the user asks to create a branded presentation, make an on-brand deck, turn an outline into slides, or generate a presentation from a brief. Input can be text directly in the message, a Canva design ID, a reference to a Canva doc by name, or a Canva design link (e.g., https://www.canva.com/design/...).
 ---
 
 # Canva Branded Presentation Creator
@@ -11,6 +11,7 @@ Create professional, on-brand presentations in Canva from user-provided outlines
 
 1. **Get the content source**
    - If the user provides text directly, use that as the outline/brief
+   - If the user provides a **Canva design ID** directly (typically starts with `D`, e.g. `DABcd1234ef`), use it as `design_id` with `Canva:start-editing-transaction` to read its contents; **do not** use `Canva:search-designs` for a raw ID
    - If the user provides a Canva design link (e.g., `https://www.canva.com/design/DAG.../...`), extract the design ID from the URL and use `Canva:start-editing-transaction` to read its contents
    - If the user references a Canva doc by name, use `Canva:search-designs` to find it, then `Canva:start-editing-transaction` to read its contents
 
