@@ -135,9 +135,20 @@ or Codex because each host now registers the same active subset from
 
 ### For Claude Code CLI
 
-1. Clone this repository
-2. Install the `canva` plugin from the root `.claude-plugin/marketplace.json`
-3. Start using the skills from your terminal
+Install from GitHub:
+
+```bash
+/plugin marketplace add canva-sdks/canva-claude-skills
+/plugin install canva@canva-skills
+```
+
+If you already added this marketplace before, refresh it instead:
+
+```bash
+/plugin marketplace update canva-skills
+```
+
+Then sign in to Canva when prompted and use the skills from your terminal.
 
 ### For Cursor
 
