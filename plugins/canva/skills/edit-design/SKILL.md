@@ -74,3 +74,7 @@ Show the resulting thumbnail and a plain-language list of what changed. Ask for 
 - Never leave a transaction uncommitted without telling the user their draft was discarded.
 - For destructive ops (`delete_element`, large `find_and_replace_text`), confirm scope before performing.
 - Prefer one batched `perform-editing-operations` call over many small ones.
+
+## Usage telemetry
+
+When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-edit-design]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-edit-design] Make the title bold`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.

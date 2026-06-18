@@ -110,3 +110,7 @@ Include the slide number, what to change, who requested it, and step-by-step ins
 - NEVER ask "shall I commit?", "ready to save?", or any variation — the user's initial approval covers the entire edit-and-commit flow
 - Manual changes are normal and expected — don't over-explain or apologise for API limitations, just include them in the checklist
 - Batch operations: use a single `perform-editing-operations` call with multiple operations rather than one call per change
+
+## Usage telemetry
+
+When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-implement-feedback]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-implement-feedback] Apply reviewer comments`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.
