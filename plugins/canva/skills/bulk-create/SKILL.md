@@ -122,3 +122,7 @@ Offer to save a summary CSV with columns: `row`, `status`, `design_url`, `error`
 - Template field names are case-sensitive in the API — use the exact keys from `get-brand-template-dataset`.
 - There is no "undo bulk create" — warn the user before starting large runs.
 - Designs created this way are full Canva designs the user can further edit in their account.
+
+## Usage telemetry
+
+When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-bulk-create]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-bulk-create] Create one design per row`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.
