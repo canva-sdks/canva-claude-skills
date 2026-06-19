@@ -1,11 +1,11 @@
 ---
 name: canva-resize-for-social-media
-description: Resize a Canva design into multiple social media formats (Facebook post, Facebook story, Instagram post, Instagram story, LinkedIn post) and export all versions as PNGs. Use this skill when users want to resize Canva designs specifically for multiple social media platforms in one operation, rather than resizing to a single format manually.
+description: Resize a Canva design into multiple social media formats (Facebook post, Facebook story, Instagram post, Instagram story, LinkedIn post). Use this skill when users want to resize Canva designs specifically for multiple social media platforms in one operation, rather than resizing to a single format manually.
 ---
 
 # Canva Resize for Social Media
 
-Automatically resize a single Canva design into multiple social media formats and export all versions as high-quality PNG images with direct download links.
+Automatically resize a single Canva design into multiple social media formats.
 
 ## Overview
 
@@ -16,7 +16,7 @@ This skill enables rapid multi-platform content distribution by taking a single 
 - Instagram story
 - LinkedIn post
 
-All resized versions are automatically exported as high-quality PNG images with direct download links and Canva edit links provided.
+All resized versions are provided with Canva edit links so users can further edit or download them directly from Canva.
 
 ## Workflow
 
@@ -100,63 +100,41 @@ Execute the resize operations **in parallel** by calling the `resize-design` too
 
 **Error handling**: If a resize operation fails, continue with remaining formats and report which formats succeeded and which failed at the end.
 
-### Step 5: Export Resized Designs as PNGs
-
-If the user already asked to export (e.g., "resize and export for social media"), proceed directly. Otherwise, ask if they'd like to export the resized designs as PNGs.
-
-For each successfully resized design from Step 4:
-
-1. Use the `export-design` tool with the resized design ID
-2. Set format type to `png` with export quality `pro`:
-   ```
-   format: { type: "png", export_quality: "pro" }
-   ```
-3. Collect the download URLs for all exported PNG files
-
-**Batch the export calls** to execute them efficiently.
-
-### Step 6: Present Results with Download Links
+### Step 5: Present Results with Edit Links
 
 **Present comprehensive results to the user:**
 
 Provide the user with a summary including:
 
 1. **Summary**: Confirm which formats were created successfully
-2. **PNG download links**: Direct download links for each exported PNG
-3. **Design edit links**: Canva editor URLs for each resized design so users can make further edits
-4. **Note about duplicates**: Mention that Facebook Story and Instagram Story have identical dimensions
+2. **Design edit links**: Canva editor URLs for each resized design so users can make further edits or download directly from Canva
+3. **Note about duplicates**: Mention that Facebook Story and Instagram Story have identical dimensions
 
 **Presentation format example:**
 ```
 ✅ Successfully resized your design for all social media platforms!
 
-Individual PNG Downloads & Edit Links:
+Edit Links:
 
 **Facebook Post** (1200×630)
-- [Download PNG](png_url)
 - [Edit in Canva](edit_url)
 
 **Facebook Story** (1080×1920)
-- [Download PNG](png_url)
 - [Edit in Canva](edit_url)
 
 **Instagram Post** (1080×1080)
-- [Download PNG](png_url)
 - [Edit in Canva](edit_url)
 
 **Instagram Story** (1080×1920)
-- [Download PNG](png_url)
 - [Edit in Canva](edit_url)
 
 **LinkedIn Post** (1200×627)
-- [Download PNG](png_url)
 - [Edit in Canva](edit_url)
 
 Note: Facebook Story and Instagram Story use the same dimensions (1080×1920).
 ```
 
 **Implementation details**:
-- PNG download links come from the `export-design` tool response
 - Design edit links come from the `resize-design` tool response (use the `urls.edit_url` field from each resized design)
 - Present links as clickable URLs, not just plain text
 - Organize by platform for easy scanning
@@ -164,9 +142,7 @@ Note: Facebook Story and Instagram Story use the same dimensions (1080×1920).
 ## Key Implementation Notes
 
 - **Compatibility**: Check if `resize-design` is available in the current MCP tools. If not, inform the user that this skill requires the Canva MCP resize tool in the current host
-- **Parallel execution**: Resize and export operations should be performed in parallel for efficiency
-- **PNG export**: Always export as PNG with pro quality for best image quality
-- **Direct download links**: Provide users with direct PNG download links (do not attempt to download files server-side or create zip files, as network restrictions prevent this)
+- **Parallel execution**: Resize operations should be performed in parallel for efficiency
 - **Consistent naming**: Use the source design title with platform suffix for resized designs
 - **Error resilience**: If any operation fails, complete the remaining operations and clearly report what succeeded/failed
 - **User confirmation**: Do not require user approval between steps - execute the full workflow automatically unless errors occur
