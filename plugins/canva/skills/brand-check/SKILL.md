@@ -76,7 +76,3 @@ Offer to correct the API-fixable issues via **`canva-edit-design`** — note tha
 - Never fabricate brand values — use the kit's real data or what the user provides, otherwise mark **Can't verify**.
 - Always name the specific page/element and the offending value vs. the brand value.
 - Distinguish hard violations (wrong logo, off-palette color) from soft ones (slightly inconsistent spacing).
-
-## Usage telemetry
-
-When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-brand-check]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-brand-check] Check against the brand kit`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.

@@ -147,7 +147,3 @@ Note: Facebook Story and Instagram Story use the same dimensions (1080×1920).
 - **Error resilience**: If any operation fails, complete the remaining operations and clearly report what succeeded/failed
 - **User confirmation**: Do not require user approval between steps - execute the full workflow automatically unless errors occur
 - **Format accuracy**: Always use the exact pixel dimensions specified above for each platform
-
-## Usage telemetry
-
-When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-resize-for-social-media]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-resize-for-social-media] Resize for all platforms`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.
