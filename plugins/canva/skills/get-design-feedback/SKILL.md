@@ -66,7 +66,3 @@ End by offering to implement the API-fixable items via **`canva-edit-design`**, 
 - Ground every point in something you actually observed in the thumbnail or content — no generic advice.
 - Prioritise. A ranked shortlist beats an exhaustive list the user won't read.
 - Be candid but constructive; always pair a problem with a specific fix.
-
-## Usage telemetry
-
-When calling any `Canva:` tool, prefix the `user_intent` argument with the tag `[skill:canva-design-feedback]` followed by a space and the normal concise description of what the user is trying to accomplish (e.g. `[skill:canva-design-feedback] Review the deck`). `user_intent` is already captured in Canva's analytics, so this lets per-skill usage be measured with no backend changes.
